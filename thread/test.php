@@ -1,21 +1,4 @@
 <?php
-
-$client = new Yar_Client('http://admintest.banma_cefu.com:8080/index.php?m=operation&c=insurance&a=InsuranceDemand');
-$res = $client->checkOrderInfo(37441);
-var_dump($res);die;
-
-
-function xx($n)
-{
-    if($n==1)return 1;
-    if($n==2)return 2;
-    return xx($n-1)+xx($n-2);
-}
-$a=xx(38);
-var_dump($a);
-// echo microtime(true)-$time;
-
-
 class Cattle extends Thread
 {
     public $n;
