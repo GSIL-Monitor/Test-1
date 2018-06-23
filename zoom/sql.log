@@ -1,0 +1,57 @@
+180617125913　:　select a.*,b.name from animal a left join species b on b.id=a.species_id where 1  order by a.id desc
+180617125914　:　select count(*) total from message where flag='否'
+180617010238　:　select * from species group by name
+180617013327　:　select a.*,b.name from animal a left join species b on b.id=a.species_id where 1  order by a.id desc
+180617013328　:　select count(*) total from message where flag='否'
+180617013333　:　select * from food where 1  order by id desc
+180617013334　:　select count(*) total from message where flag='否'
+180617013338　:　select * from animal group by category
+180617014029　:　select * from message where 1  order by id desc
+180617014029　:　update message set flag='是'
+180617014032　:　select count(*) total from message where flag='否'
+180617014043　:　select * from food where 1  order by id desc
+180617014044　:　select count(*) total from message where flag='否'
+180617014059　:　delete from team where id=6
+180617014116　:　select * from message where 1  order by id desc
+180617014116　:　update message set flag='是'
+180617014117　:　select count(*) total from message where flag='否'
+180617014127　:　select * from food where 1  order by id desc
+180617014128　:　select count(*) total from message where flag='否'
+180617014132　:　delete from team where id=6
+180617014137　:　select * from message where 1  order by id desc
+180617014137　:　update message set flag='是'
+180617014139　:　select count(*) total from message where flag='否'
+180617014220　:　delete from food where id=6
+180617014221　:　select * from food where 1  order by id desc
+180617014222　:　select count(*) total from message where flag='否'
+180617014227　:　select * from message where 1  order by id desc
+180617014227　:　update message set flag='是'
+180617014228　:　select count(*) total from message where flag='否'
+180617014240　:　select * from message where 1  order by id desc
+180617014240　:　update message set flag='是'
+180617014241　:　select count(*) total from message where flag='否'
+180617015703　:　select a.*,b.name from animal a left join species b on b.id=a.species_id where 1  order by a.id desc
+180617015704　:　select count(*) total from message where flag='否'
+180617015710　:　select * from species group by name
+180617015723　:　select * from food where 1  order by id desc
+180617015724　:　select count(*) total from message where flag='否'
+180617015727　:　select * from animal group by category
+180617015802　:　select * from animal group by category
+180617015802　:　insert into food(name,production_date,period,price,unit,stock,channel,method,object) values('泥鳅','2018-01-01','100','200','kg','100','赠送','是非','喜欢阴冷潮湿的')
+180617015803　:　select * from food where 1  order by id desc
+180617015804　:　select count(*) total from message where flag='否'
+180617015808　:　select message.*,food.name from message left join food on message.food_id = food.id where 1  order by id desc
+180617015808　:　update message set flag='是'
+180617015809　:　select count(*) total from message where flag='否'
+180617015816　:　select * from food where 1  order by id desc
+180617015817　:　select count(*) total from message where flag='否'
+180617015826　:　select * from animal group by category
+180617015826　:　select * from food where id=5
+180617015833　:　select * from animal group by category
+180617015833　:　update food set name='小弄下',production_date='2018-06-14',period='1',price='290.00',unit='kg',stock='100',channel='赠与',method='是非',object='爬行动物' where id=5
+180617015833　:　select * from food where id=5
+180617015834　:　select * from food where 1  order by id desc
+180617015835　:　select count(*) total from message where flag='否'
+180617015839　:　select message.*,food.name from message left join food on message.food_id = food.id where 1  order by id desc
+180617015839　:　update message set flag='是'
+180617015840　:　select count(*) total from message where flag='否'
