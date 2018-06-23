@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	#map{width: 500px;height: 600px;background:url(./images/bg_1.jpg);position:relative;overflow:hidden;margin:0 auto;}
+	#me{position:absolute;left:0;bottom: 0;}
+	#boom{position:absolute;display:none;}
+	#bullte{position:absolute;display:none;}
+	.enemy{position:absolute;}
+	</style>
+</head>
+<body>
+	<div id="map">
+		<div id="me">
+			<img src="./images/me.png" alt="">
+		</div>
+	</div>
+	<div id="boom"><img src="./images/boom.gif" alt="" width=100px></div>
+	<div id="bullte"><img src="./images/b.png" alt=""></div>
+</body>
+<script type="text/javascript">
+	var map=document.getElementById("map");
+	var me=document.getElementById("me");
+	var bullte=document.getElementById("bullte");
+	var boom=document.getElementById("boom");
+	var inte=null;//移动的定时器
+
+
+	//让战机居中
+	me.style.left=(map.offsetWidth-me.offsetWidth)/2+'px';
+	//按键事件
+	window.onkeypress=function(e)
+	{
+		var key=e.keyCode || e.charCode;
+		//w--119 a--97  d--100 s--115  space--32
+		switch(key)
+		{
+			case 97:
+				moveLeft();
+				break;
+			case 100:
+				moveRight();
+				break;
+			case 115:
+				moveDown();
+				break;
+			case 119:
+				moveUp();
+				break;
+			case 32:
+				fire();
+				break;
+		}
+	}
+	//按键谈起事件
+	window.onkeyup=function()
+	{
+		clearInterval(inte);
+		inte=null;
+	}
+	//向左移动
+	function moveLeft()
+	{
+		if(inte!=null)return;
+		inte=setInterval(function(){
+			var res=me.offsetLeft-5;
+			if(res<0)res=0;
+			me.style.left=res+'px';
+		},10)
+	}
+	//向右移动
+	function moveRight()
+	{
+		if(inte!=null)return;
+		inte=setInterval(function(){
+			var res=me.offsetLeft+5;
+			if(res>(map.offsetWidth-me.offsetWidth))res=map.offsetWidth-me.offsetWidth;
+			me.style.left=res+'px';
+		},10)
+	}
+	//向上移动
+	function moveUp()
+	{
+		if(inte!=null)return;
+		inte=setInterval(function(){
+			var res=me.offsetTop-5;
+			if(res<0)res=0;
+			me.style.top=res+'px';
+		},10)
+	}
+	//向下移动
+	function moveDown()
+	{
+		if(inte!=null)return;
+		inte=setInterval(function(){
+			var res=me.offsetTop+5;
+			//if(res>(map.offsetHeight-me.offsetHeight))res=map.offsetHeight-me.offsetHeight;
+			// var max=(map.offsetHeight-me.offsetHeight);
+			 console.log(me.offsetHeight)
+			if(res>520)res=520;
+			me.style.top=res+'px';
+		},10) 
+	}
+	//敌方战机
+	function makeEnemy()
+	{
+		var newEnemy=document.createElement('div');
+		newEnemy.innerHTML='<img src="./images/e'+Math.ceil(Math.random()*3)+'.png" alt="" />';
+		// 将敌机插入到map
+		map.appendChild(newEnemy);
+		//设置属性
+		newEnemy.className='enemy';
+		newEnemy.style.left=Math.ceil(Math.random()*(map.offsetWidth-me.offsetWidth))+'px';
+		//敌机乡下移动
+		var inte = setInterval(function(){
+			var res=newEnemy.offsetTop+3;
+			if(res>map.offsetHeight){map.removeChild(newEnemy),clearInterval(inte)};
+			newEnemy.style.top=res+'px';
+			//飞机和飞机碰撞
+			var minLeft=newEnemy.offsetLeft-me.offsetWidth;
+			var maxLeft=newEnemy.offsetLeft+newEnemy.offsetWidth;
+			var minTop=newEnemy.offsetTop;
+			var maxTop=newEnemy.offsetTop+newEnemy.offsetHeight;
+			//判断
+			if(me.offsetLeft>minLeft && me.offsetLeft<maxLeft && me.offsetTop<maxTop && me.offsetTop>minTop)
+			{
+				//销毁地方战纪
+				map.removeChild(newEnemy);
+				//创建boom
+				var newBoom=boom.cloneNode(true);
+				newBoom.style.display="block";
+				//位置
+				newBoom.style.left=me.offsetLeft+'px';
+				newBoom.style.top=me.offsetTop+'px';
+				//替换到map中
+				map.replaceChild(newBoom,me);
+				alert("GAME OVER !");
+				setTimeout(function(){map.removeChild(newBoom),2000})
+			}
+		},10)
+	}
+	setInterval(makeEnemy,Math.ceil(Math.random()*3000-100))
+	//子弹
+	function fire()
+	{
+		var newBullte=bullte.cloneNode(true);
+		newBullte.style.display='block';
+		//插入到map中
+		map.appendChild(newBullte);
+		//调整位置
+		newBullte.style.left=me.offsetLeft+(me.offsetWidth-newBullte.offsetWidth)/2+'px';
+		newBullte.style.top=me.offsetTop-newBullte.offsetHeight+'px';
+		//让子弹飞
+		var inte=setInterval(function(){
+			var res=newBullte.offsetTop-8;
+			if(res<0){clearInterval(inte);}
+			newBullte.style.top=res+'px';
+			//boom效果
+			var enemy=document.getElementsByClassName("enemy");
+			//遍历战机
+			for (var i = 0; i < enemy.length; i++) {
+				//获取爆炸范围
+				var minLeft=enemy[i].offsetLeft;
+				var maxLeft=enemy[i].offsetLeft+enemy[i].offsetWidth;
+				var minTop=enemy[i].offsetTop;
+				var maxTop=enemy[i].offsetTop+enemy[i].offsetHeight;
+				//判断
+				if (newBullte.offsetLeft>minLeft && newBullte.offsetLeft<maxLeft && newBullte.offsetTop<maxTop && newBullte.offsetTop>minTop) {
+					//销毁子弹
+					map.removeChild(newBullte);
+					//创建boom对象替换爆炸飞机
+					var newBoom=boom.cloneNode(true);
+					map.replaceChild(newBoom,enemy[i]);
+					//样式
+					newBoom.style.display='block';
+					//替换的位置
+					newBoom.style.left=minLeft+'px';
+					newBoom.style.top=minTop+'px';
+					//延时器
+					setTimeout(function(){map.removeChild(newBoom)},500)
+				};
+			};
+		},50)
+	}
+	
+	// console.log(me.offsetHeight);
+</script>
+</html>
