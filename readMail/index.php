@@ -9,9 +9,9 @@ class EmController
 {
     //定义系统常量
     //用户名
-    public $mailAccount = "wusong@banmatrip.com";
-    public $mailPasswd = "Ws3391095";
-    public $mailAddress = "wusong@banmatrip.com";
+    public $mailAccount = "";
+    public $mailPasswd = "";
+    public $mailAddress = "";
     public $mailServer = "imap.exmail.qq.com";
     public $serverType = "imap";
     public $port = "993";
