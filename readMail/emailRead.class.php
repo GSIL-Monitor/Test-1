@@ -14,8 +14,8 @@ class Email_reader {
 
     // email login credentials
     private $server = 'imap.exmail.qq.com';
-    private $user   = 'wusong@banmatrip.com';
-    private $pass   = 'Ws3391095';
+    private $user   = '';
+    private $pass   = '';
     private $port   = 143; // adjust according to server settings
 
     // connect to the server and get the inbox emails
