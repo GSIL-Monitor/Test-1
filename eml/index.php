@@ -6,7 +6,7 @@ $json = '{
     "sender_name": "我是发件人",
     "to_name": "收件人1,收件人2,ymy",
     "to_list": "wusong@qq.com,liangso@qq.com,ymy@qq.com",
-    "cc_list": "cc1",
+    "cc_list": "抄送人",
     "cc_name": "cc1@qq.com",
     "title": "我是主题",
     "content": "<p>测试一下！！！{43575}<br></p>",
@@ -37,6 +37,7 @@ foreach ($toName as $k => $name){
 $ccName = explode(',', $mailDetail['cc_name']);
 $ccEmail = explode(',', $mailDetail['cc_list']);
 if(!empty($ccName)){
+    $str .= "Cc: ";
     foreach ($ccName as $k => $name){
         $str .= "$name <$ccEmail[$k]>";
         if($k+1 != count($ccName)){
