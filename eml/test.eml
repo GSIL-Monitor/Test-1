@@ -1,7 +1,7 @@
 Date: 2018-09-15 09:56:05 +0800
 To: 收件人1 <wusong@qq.com>, 收件人2 <liangso@qq.com>, ymy <ymy@qq.com>
-Cc: cc1@qq.com <抄送人>
-From: sender@qq.com <我是发件人>
+Cc: 抄送人 <cc1@qq.com>
+From: 我是发件人 <sender@qq.com>
 Subject: 我是主题
 MIME-Version: 1.0
 Content-Type: text/html; charset=UTF-8

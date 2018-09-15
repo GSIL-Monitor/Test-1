@@ -6,8 +6,8 @@ $json = '{
     "sender_name": "我是发件人",
     "to_name": "收件人1,收件人2,ymy",
     "to_list": "wusong@qq.com,liangso@qq.com,ymy@qq.com",
-    "cc_list": "抄送人",
-    "cc_name": "cc1@qq.com",
+    "cc_name": "抄送人",
+    "cc_list": "cc1@qq.com",
     "title": "我是主题",
     "content": "<p>测试一下！！！{43575}<br></p>",
     "email_time": "2018-09-15 09:56:05",
@@ -49,7 +49,7 @@ if(!empty($ccName)){
 }
 
 // 发件人
-$str .= "From: {$mailDetail['sender']} <{$mailDetail['sender_name']}>".PHP_EOL;
+$str .= "From: {$mailDetail['sender_name']} <{$mailDetail['sender']}>".PHP_EOL;
 
 // 邮件主题
 $str .= "Subject: {$mailDetail['title']}". PHP_EOL;
