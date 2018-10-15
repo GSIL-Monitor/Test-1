@@ -12,7 +12,7 @@ class Cattle extends Thread
     {
         $time1 = microtime(true);
 
-        echo xx($this->n);
+        echo $this->xx($this->n);
 
         $time2 = microtime(true);
         echo '任务耗时：', $time2 - $time1, "\n";
@@ -22,7 +22,7 @@ class Cattle extends Thread
     {
         if($n==1)return 1;
         if($n==2)return 2;
-        return xx($n-1)+xx($n-2);
+        return $this->xx($n-1)+$this->xx($n-2);
     }
 }
 
