@@ -29,7 +29,7 @@ if(empty($result))
 
         // 为了幂等性，所有请求返回统一结果，所以还需要将这次结果存入Redis
         $result = 'I am result：'.microtime(true);
-        $redis->set('result'.$key,$result,60);
+        $redis->set('result'.$key,$result,5);
 
         //以上程序走完删除锁
         //检测锁是否过期，过期锁没必要删除

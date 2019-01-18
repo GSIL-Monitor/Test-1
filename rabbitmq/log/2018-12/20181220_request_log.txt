@@ -1,0 +1,1 @@
+'file:D:\\phpStudy\\WWW\\test\\vendor\\php-amqplib\\php-amqplib\\PhpAmqpLib\\Channel\\AMQPChannel.php;line:188;message:PRECONDITION_FAILED - inequivalent arg \'durable\' for exchange \'delay_exchange\' in vhost \'/\': received \'false\' but current is \'true\''

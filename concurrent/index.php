@@ -1,6 +1,6 @@
 <?php
 set_time_limit(0);
-$url = 'http://localhost/test/redis/setnx/setnx_1.php';
+$url = ' http://working.com/index.php?m=orangeapi&c=HotelOrder&a=getZhilianHotelOrderList';
 $mh = curl_multi_init();
 $limit = 100;
 for ($i = 0  ; $i < $limit; $i++) {

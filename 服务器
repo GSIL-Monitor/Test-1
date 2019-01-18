@@ -1,0 +1,36 @@
+Array
+(
+    [USER] => apache
+    [HOME] => /usr/share/httpd
+    [FCGI_ROLE] => RESPONDER
+    [SCRIPT_FILENAME] => /mnt/www/banma/server/allsvn/index.php
+    [QUERY_STRING] => m=www&m=orangeapi&c=HotelOrder&a=test
+    [REQUEST_METHOD] => GET
+    [CONTENT_TYPE] =>
+    [CONTENT_LENGTH] =>
+    [SCRIPT_NAME] => /index.php
+    [REQUEST_URI] => /index.php?m=orangeapi&c=HotelOrder&a=test
+    [DOCUMENT_URI] => /index.php
+    [DOCUMENT_ROOT] => /mnt/www/banma/server/allsvn
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_SOFTWARE] => nginx/1.6.3
+    [REMOTE_ADDR] => 180.173.146.18
+    [REMOTE_PORT] => 61095
+    [SERVER_ADDR] => 139.196.13.142
+    [SERVER_PORT] => 80
+    [SERVER_NAME] => test.bmtrip.com
+    [REDIRECT_STATUS] => 200
+    [HTTP_HOST] => test.bmtrip.com
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_CACHE_CONTROL] => max-age=0
+    [HTTP_UPGRADE_INSECURE_REQUESTS] => 1
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.27 Safari/537.36
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate
+    [HTTP_ACCEPT_LANGUAGE] => zh-CN,zh;q=0.9
+    [HTTP_COOKIE] => PHPSESSID=41m3ojjttl8o5g708od7fd9186; Hm_lvt_6681fc6da2f37578acbb0f5b2cc6f10c=1521512405; Hm_lpvt_6681fc6da2f37578acbb0f5b2cc6f10c=1521516091
+    [PHP_SELF] => /index.php
+    [REQUEST_TIME_FLOAT] => 1521518013.4579
+    [REQUEST_TIME] => 1521518013
+)
